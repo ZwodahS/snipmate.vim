@@ -1,0 +1,21 @@
+snippet %
+	<% ${1} %>
+snippet %=
+	<%= ${1} %>
+snippet divfield
+	<div class="field">
+	${1}
+	</div>
+snippet ftextfield
+	<%= f.label :${1:fieldname} %>
+	<%= f.text_field :$1 %>
+snippet fselect
+	<%= f.label :${1:fieldname} %>
+	<%= f.select(:$1 , ${2:variable} %>
+snippet fnumber
+	<%= f.label :${1:fieldname} %>
+	<%= f.number_field :$1 %>
+snippet auth_token
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden" />
+snippet method
+	<input name="_method" type="hidden" value="${1}" />

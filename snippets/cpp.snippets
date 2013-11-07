@@ -1,34 +1,83 @@
-# Read File Into Vector
-snippet readfile
-	std::vector<char> v;
-	if (FILE *${2:fp} = fopen(${1:"filename"}, "r")) {
-		char buf[1024];
-		while (size_t len = fread(buf, 1, sizeof(buf), $2))
-			v.insert(v.end(), buf, buf + len);
-		fclose($2);
-	}${3}
-# std::map
-snippet map
-	std::map<${1:key}, ${2:value}> map${3};
-# std::vector
-snippet vector
-	std::vector<${1:char}> v${2};
 # Namespace
 snippet ns
 	namespace ${1:`Filename('', 'my')`} {
 		${2}
 	} /* $1 */
 # Class
-snippet cl
-	class ${1:`Filename('$1_t', 'name')`} {
-	public:
-		$1 (${2:arguments});
-		virtual ~$1 ();
-
-	private:
-		${3:/* data */}
-	};
+snippet ::
+	`Filename()`::
+snippet cn
+	`Filename()`
+snippet ::cn
+	`Filename()`::`Filename()`(${1})
+	{
+	}
+snippet ::~cn
+	`Filename()`::~`Filename()`(${1})
+	{
+	}
 snippet fori
-	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) 
+	{
 		${4:/* code */}
 	}
+snippet cout
+	std::cout << ${1} ;
+snippet coutel
+	std::cout << ${1} << std::endl;
+snippet vector
+	std::vector<${1:type}>
+snippet vector2d
+	std::vector<std::vector<${1:type> >
+snippet vectorit
+	std::vector<${1:type}>::iterator
+snippet endl
+	std::endl
+snippet header
+	#ifndef ${1:_H_}
+	#define $1
+	#endif
+snippet iteratev
+	for(std::${5:vector}<${1:type}>::${2:const_}iterator ${3:it} = ${4:vector}.begin() ; $3 != $4.end() ; ++$3)
+	{
+
+	}
+snippet iteratevi
+	int ${6:i} = 0;
+	for(std::${5:vector}<${1:type}>::${2:const_}iterator ${3:it} = ${4:vector}.begin() ; $3 != $4.end() ; ++$3, $6++)
+	{
+
+	}
+snippet iteratevrm
+	for(std::${6:vector}<${1:type}>::iterator ${2:it} = ${3:vector}.begin() ; $2 != $3.end() ; )
+	{	
+		if(${4:true})
+		{
+			$2 = $3.erase($2);
+			continue;
+		}
+		++$2;
+	}
+snippet point
+	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << std::endl;
+snippet pointm
+	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << ${1:message} << std::endl;
+snippet pointd
+	#ifdef ${1:DEBUG}
+	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << ${2:message} << std::endl;
+	#endif
+# For SFML packeting
+snippet packethpp
+	sf::Packet& operator << (sf::Packet& packet, const ${1:`Filename()`}& ${2:message});
+	sf::Packet& operator >> (sf::Packet& packet, $1& $2);
+snippet packetcpp
+	sf::Packet& operator << (sf::Packet& packet, const ${1:`Filename()`}& ${2:message})
+	{
+		return packet;
+	}
+	sf::Packet& operator >> (sf::Packet& packet, $1& $2)
+	{
+		return packet;
+	}
+snippet int
+	sf::Int32 
