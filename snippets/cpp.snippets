@@ -37,10 +37,13 @@ snippet header
 	#ifndef ${1:_H_}
 	#define $1
 	#endif
+snippet iteratevauto
+	for(auto ${1:} = ${2:vector}.begin(); $1 != $2.end() ; ++$1)
+	{
+	}
 snippet iteratev
 	for(std::${5:vector}<${1:type}>::${2:const_}iterator ${3:it} = ${4:vector}.begin() ; $3 != $4.end() ; ++$3)
 	{
-
 	}
 snippet iteratevi
 	int ${6:i} = 0;
@@ -81,3 +84,20 @@ snippet packetcpp
 	}
 snippet int
 	sf::Int32 
+snippet duihpp
+	${1:virtual} void draw(sf::RenderWindow& window, const sf::Time& delta);
+	$1 void update(sf::RenderWindow& window, const sf::Time& delta);
+	$1 void inputs(sf::RenderWindow& window, const sf::Time& delta);
+
+snippet duicpp
+	void ${1:`Filename()`}::draw(sf::RenderWindow& window, const sf::Time& delta)
+	{
+	}
+
+	void $1::update(sf::RenderWindow& window, const sf::Time& delta)
+	{
+	}
+	
+	void $1::inputs(sf::RenderWindow& window, const sf::Time& delta)
+	{
+	}
