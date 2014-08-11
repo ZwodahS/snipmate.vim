@@ -19,7 +19,6 @@ snippet ::~cn
 snippet fori
 	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) 
 	{
-		${4:/* code */}
 	}
 snippet cout
 	std::cout << ${1} ;
@@ -37,30 +36,6 @@ snippet header
 	#ifndef ${1:_H_}
 	#define $1
 	#endif
-snippet iteratevauto
-	for(auto ${1:} = ${2:vector}.begin(); $1 != $2.end() ; ++$1)
-	{
-	}
-snippet iteratev
-	for(std::${5:vector}<${1:type}>::${2:const_}iterator ${3:it} = ${4:vector}.begin() ; $3 != $4.end() ; ++$3)
-	{
-	}
-snippet iteratevi
-	int ${6:i} = 0;
-	for(std::${5:vector}<${1:type}>::${2:const_}iterator ${3:it} = ${4:vector}.begin() ; $3 != $4.end() ; ++$3, $6++)
-	{
-
-	}
-snippet iteratevrm
-	for(std::${6:vector}<${1:type}>::iterator ${2:it} = ${3:vector}.begin() ; $2 != $3.end() ; )
-	{	
-		if(${4:true})
-		{
-			$2 = $3.erase($2);
-			continue;
-		}
-		++$2;
-	}
 snippet point
 	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << std::endl;
 snippet pointm
@@ -70,34 +45,7 @@ snippet pointd
 	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << ${2:message} << std::endl;
 	#endif
 # For SFML packeting
-snippet packethpp
-	sf::Packet& operator << (sf::Packet& packet, const ${1:`Filename()`}& ${2:message});
-	sf::Packet& operator >> (sf::Packet& packet, $1& $2);
-snippet packetcpp
-	sf::Packet& operator << (sf::Packet& packet, const ${1:`Filename()`}& ${2:message})
-	{
-		return packet;
-	}
-	sf::Packet& operator >> (sf::Packet& packet, $1& $2)
-	{
-		return packet;
-	}
 snippet int
-	sf::Int32 
-snippet duihpp
-	${1:virtual} void draw(sf::RenderWindow& window, const sf::Time& delta);
-	$1 void update(sf::RenderWindow& window, const sf::Time& delta);
-	$1 void inputs(sf::RenderWindow& window, const sf::Time& delta);
-
-snippet duicpp
-	void ${1:`Filename()`}::draw(sf::RenderWindow& window, const sf::Time& delta)
-	{
-	}
-
-	void $1::update(sf::RenderWindow& window, const sf::Time& delta)
-	{
-	}
-	
-	void $1::inputs(sf::RenderWindow& window, const sf::Time& delta)
-	{
-	}
+	sf::Int32
+snippet ////
+	////////////////////
