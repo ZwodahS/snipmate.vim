@@ -33,9 +33,12 @@ snippet vectorit
 snippet endl
 	std::endl
 snippet header
-	#ifndef ${1:_H_}
-	#define $1
+	#ifndef ${1:}_HPP_
+	#define $1_HPP_
 	#endif
+snippet nheader
+	#ifndef ${1:}_HPP_
+	#define $1_HPP
 snippet point
 	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << std::endl;
 snippet pointm
@@ -47,5 +50,3 @@ snippet pointd
 # For SFML packeting
 snippet int
 	sf::Int32
-snippet ////
-	////////////////////
